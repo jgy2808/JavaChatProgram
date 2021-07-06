@@ -213,8 +213,48 @@ public class MultiClient implements ActionListener {
 		}
 	}
 	
-	public static void main(String[] args) {
-		
+	public void exit() {
+		System.exit(0);
+	}
+	
+	public void init() throws IOException {
+		socket = new Socket("192.168.35.96", 5000);
+		System.out.println("connected...");
+		oos = new ObjectOutputStream(socket.getOutputStream());
+		ois = new ObjectInputStream(socket.getInputStream());
+		MultiClientThread ct = new MultiClientThread(this);
+		Thread t = new Thread(ct);
+		t.start();
+	}
+	
+	public static void main(String[] args) throws IOException {
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		MultiClient cc = new MultiClient();
+		cc.init();
+	}
+	
+	public ObjectInputStream getOis() {
+		return ois;
+	}
+	
+	public JTextArea getJta() {
+		return jta;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void SetName(String a) {
+		id = a;
 	}
 
+	public void Clear() {
+		jta.setText("");
+		jtf.requestFocus();
+	}
+	
+	public void My() {
+		jta.setDisabledTextColor(Color.BLUE);
+	}
 }
