@@ -25,9 +25,9 @@ public class MultiClientThread extends Thread {
 			}
 			System.out.println(receivedMsg[0] + ", " + receivedMsg[1]);
 			if (receivedMsg[1].equals("exit")) {
-				if (receivedMsg[0].equals(mc.getId())) {
+				if (receivedMsg[0].equals(mc.getId())) { // exit 입력한게 자신일때
 					mc.exit();
-				} else {
+				} else { // exit 입력한게 자신이 아닐 때
 					mc.getJta().append(
 					receivedMsg[0] + "님이 종료 하셨습니다." +
 					System.getProperty("line.separator"));
