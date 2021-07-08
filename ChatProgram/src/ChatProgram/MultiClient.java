@@ -147,13 +147,13 @@ public class MultiClient implements ActionListener {
 		int screenWidth = d.width;
 		
 		jframe.pack();
-		jframe.setLocation((screenWidth = jframe.getWidth()) / 2, (screenHeight - jframe.getHeight()) / 2);
+		jframe.setLocation((screenWidth - jframe.getWidth()) / 2, (screenHeight - jframe.getHeight()) / 2);
 		jframe.setResizable(false);
 		jframe.setVisible(false);
 		
 		login1.pack();
 		login1.setSize(800, 300);
-		login1.setLocation((screenWidth = jframe.getWidth()) / 2, (screenHeight - jframe.getHeight()) / 2);
+		login1.setLocation((screenWidth - jframe.getWidth()) / 2, (screenHeight - jframe.getHeight()) / 2);
 		login1.setResizable(false);
 		login1.setVisible(true);		
 	}
@@ -210,7 +210,7 @@ public class MultiClient implements ActionListener {
 				ee.printStackTrace();
 			}
 			System.exit(0); // 이거 때문에 처음 시연해볼 때 채팅 입력창 옆 enter 버튼 누르면 종료했던 것
-		}
+		} // jtf에 exit 적어서 보내면 종료되는데 다른 유저에게 퇴장 메세지 안뜸 근데 jbtn으로 퇴장시 퇴장 메세지 뜸 왜???
 	}
 	
 	public void exit() {

@@ -17,15 +17,15 @@ public class MultiClientThread extends Thread {
 		boolean isStop = false;
 		while(!isStop) {
 			try {
-				message = (String)mc.getOis().readObject();
-				receivedMsg = message.split("#");
+				message = (String)mc.getOis().readObject(); // Server에서 writeObject(객체)로 넘어온 객체를 message에 저장
+				receivedMsg = message.split("#"); 
 			} catch (Exception e) {
 				e.printStackTrace();
 				isStop = true;
 			}
 			System.out.println(receivedMsg[0] + ", " + receivedMsg[1]);
-			if (receivedMsg[1].equals("exit")) {
-				if (receivedMsg[0].equals(mc.getId())) { // exit 입력한게 자신일때
+			if (receivedMsg[1].equals("exit")) { // Client에서 입력한 msg가 exit이고 Server로 넘긴 다음 다시 응답받은 msg가 exit일 때
+				if (receivedMsg[0].equals(mc.getId())) { // Server로부터 받은 메세지에서 exit 입력한 id가 자신일 때
 					mc.exit();
 				} else { // exit 입력한게 자신이 아닐 때
 					mc.getJta().append(
