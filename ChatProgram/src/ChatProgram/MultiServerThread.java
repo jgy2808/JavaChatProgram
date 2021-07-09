@@ -21,8 +21,11 @@ public class MultiServerThread implements Runnable {
 			oos = new ObjectOutputStream(socket.getOutputStream());
 			String message = null;
 			while(!isStop) {
+				System.out.println("1");
 				message = (String)ois.readObject();
+				System.out.println("2");
 				String[] str = message.split("#");
+				System.out.println("3");
 				
 				String name = "list" + "#";
 				
