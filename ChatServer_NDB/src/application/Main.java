@@ -24,6 +24,7 @@ public class Main extends Application {
 	public static Vector<Client> clients = new Vector<Client>();
 	
 	ServerSocket serverSocket;
+	TextArea textArea;
 	
 	//서버를 구동시켜 클라이언트의 연결을 기다리는 메소드 accept()
 	public void startServer(String ip, int port) {
@@ -43,7 +44,7 @@ public class Main extends Application {
 				while(true) {
 					try {
 						Socket socket = serverSocket.accept();
-						clients.add(new Client(socket));
+						clients.add(new Client(socket, textArea));
 						System.out.println("[클라이언트 접속] "
 								+ socket.getRemoteSocketAddress()
 								+ " : " + Thread.currentThread().getName());
@@ -88,7 +89,7 @@ public class Main extends Application {
 		BorderPane root = new BorderPane();
 		root.setPadding(new Insets(5));
 		
-		TextArea textArea = new TextArea();
+		textArea = new TextArea();
 		textArea.setEditable(false);
 		textArea.setFont(new Font("Gothic", 15));
 		root.setCenter(textArea);
