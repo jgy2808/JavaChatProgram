@@ -105,7 +105,7 @@ public class Main extends Application {
 		toggleButton.setOnAction(event -> {
 			if (toggleButton.getText().equals("시작하기")) {
 				startServer(ip, port);
-				Platform.runLater(() -> { // javafx에서는 버튼을 눌렀을 때 textArea에서 바로 가져와서 쓰면 안되고 runLater을 이용해서 출력하거나 가져오기 
+				Platform.runLater(() -> { // javafx에서는 버튼을 눌렀을 때 textArea를 바로 가져와서 쓰면 안되고 runLater을 이용해서 출력하거나 가져오기 
 					String message = String.format("[서버 시작]\n", ip, port);
 					textArea.appendText(message);
 					toggleButton.setText("종료하기");
