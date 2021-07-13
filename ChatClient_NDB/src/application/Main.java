@@ -130,7 +130,7 @@ public class Main extends Application {
 		});
 
 		Button connectionButton = new Button("立加窍扁");
-		connectionButton.setOnAction(evnet -> {
+		connectionButton.setOnAction(event -> {
 			if (connectionButton.getText().equals("立加窍扁")) {
 				int port = 9876;
 				try {
