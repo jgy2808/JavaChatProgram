@@ -15,7 +15,7 @@ public class MultiServer {
 		boolean isStop = false;
 		while (!isStop) {
 			System.out.println("Server ready...");
-			socket = serverSocket.accept();
+			socket = serverSocket.accept(); // client를 대기하면서 while문 진행도 대기
 			mst = new MultiServerThread(this);
 			list.add(mst);
 			Thread t = new Thread(mst);
