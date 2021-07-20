@@ -77,7 +77,7 @@ public class Main extends Application {
 			}
 			// 쓰레드풀 종료하기
 			if (threadPool != null && !threadPool.isShutdown()) {
-				threadPool.isShutdown();
+				threadPool.shutdown();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
